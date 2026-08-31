@@ -24,6 +24,7 @@ VALIDATE(){
         exit 1
     else
         echo -e "$TIMESTAMP [INFO] $2 ... $G SUCCESS $N" | tee -a $LOGS_FILE
+    fi
 }
 
 cp mongo.repo /etc/yum.repos.d/mongo.repo
