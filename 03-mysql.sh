@@ -27,14 +27,12 @@ VALIDATE(){
     fi
 }
 
-dnf module disable redis -y &>> $LOGS_FILE 
-dnf module enable redis:7 -y &>> $LOGS_FILE
-dnf install redis -y &>> $LOGS_FILE
-VALIDATE $? "Installin Redis:7"
+dnf install mysql-server -y &>> $LOGS_FILE
+VALIDATE $? "Installing MySQL Server"
 
-sed -i -e 's/127.0.0.1/0.0.0.0/g' -e '/protectec-mode/ c protectec-mode no' /etc/redis/redis.conf
-VALIDATE $? "Allowing remote coonections"
+systemctl enable mysqld &>> $LOGS_FILE
+systemctl start mysqld &>> $LOGS_FILE
+VALIDATE $? "Enable and Start MySQL Server"
 
-systemctl enable redis &>> $LOGS_FILE
-systemctl start redis &>> $LOGS_FILE
-VALIDATE $? "Started Redis"
+mysql_secure_installation --set-root-pass RoboShop@1
+VALIDATE $? "Setting up root password"
