@@ -1,6 +1,6 @@
 #!/bin/bash
 
-AMI_ID="0220d79f3f480ecf5"
+AMI_ID="ami-0220d79f3f480ecf5"
 ZONE_ID="Z06143913AWT2Y6NPPAQL" # Replace with ur zone id
 DOMAIN_NAME="deep90s.online" # Replace with ur domain name
 
