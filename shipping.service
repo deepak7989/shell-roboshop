@@ -3,9 +3,11 @@ Description=Shipping Service
 
 [Service]
 User=roboshop
+// highlight-start
 Environment=CART_ENDPOINT=cart.deep90s.online:8080
 Environment=DB_HOST=mysql.deep90s.online
-ExecStart=/bin/java -jar /app/shipping-1.0.jar
+// highlight-end
+ExecStart=/bin/java -jar /app/shipping.jar
 SyslogIdentifier=shipping
 
 [Install]
