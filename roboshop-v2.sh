@@ -35,7 +35,7 @@ do
     if [ $ACTION == "create" ]; then
         if [ $INSTANCE_ID == "None" ]; then
             echo "Launching Instance: roboshop-$instance"
-            $INSTANCE_ID=$( aws ec2 run-instances \
+            INSTANCE_ID=$( aws ec2 run-instances \
             --image-id $AMI_ID \
             --instance-type t3.micro \
             --security-groups "roboshop-common" "roboshop-$instance" \
