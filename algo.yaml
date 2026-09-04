@@ -7,9 +7,12 @@ if create
     it means it is not created, so we will create
   else
     instace_id not none, it means it is alredy running
+  fi
     then update r53 records
 else delete
   if instance_id is none
     alredy destroyed
   else
     instance_id is not none, lets destroy
+  fi
+fi
